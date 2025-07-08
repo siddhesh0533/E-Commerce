@@ -9,10 +9,11 @@ const adminAuth = (req, res, next) => {
 
         const token_decode = jwt.verify(token, process.env.JWT_SECRET);
         if (token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
-            return res.status(403).json({ success: false, message: "Access denied" });
+            return res.json({ success: false, message: "Access denied" });
         }
+        req.user = token_decode;
 
-        // req.user = decoded;
+
         next();
     } catch (error) {
         console.error(error);
