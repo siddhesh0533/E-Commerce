@@ -62,7 +62,7 @@ import cross_icon from './cross_icon.png';
 import star_icon from './star_icon.png';
 import star_dull_icon from './star_dull_icon.png';
 import bin_icon from './bin_icon.png';
-import stripe_logo from './stripe_logo.svg';
+import Stripe_logo from './Stripe_logo.svg';
 import razorpay_logo from './razorpay_logo.png';
 // import w1 from './w1.png';
 // import w2 from './w1.jpg';
@@ -123,7 +123,7 @@ export const assets = {
     star_icon,
     star_dull_icon,
     bin_icon,
-    stripe_logo,
+    Stripe_logo,
     razorpay_logo,
     // w1,
     // w2,
