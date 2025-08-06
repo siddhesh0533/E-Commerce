@@ -4,7 +4,7 @@ const authUser = async(req, res, next) => {
   const {token} = req.headers;
 
   if (!token) {
-    return res.json({ success:'false', message: 'Not Authorized Login Again' }); 
+    return res.json({ success:false, message: 'Not Authorized Login Again' }); 
   }else{
     try {
         const token_decode = jwr.verify(token, process.env.JWT_SECRET);
@@ -12,7 +12,7 @@ const authUser = async(req, res, next) => {
         next();
     } catch (error) {
         console.log(error);
-        res.json({ success: 'false', message: error.message });
+        res.json({ success:false, message: error.message });
     }
   }
 }

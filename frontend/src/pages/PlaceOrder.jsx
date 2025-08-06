@@ -94,6 +94,9 @@ const PlaceOrder = () => {
             navigate('/orders')
           }else{
             toast.error(response.data.message)
+            if (response.data.message === 'Not Authorized Login Again') {
+              navigate('/login');
+            }
           }
           break;
 
@@ -106,6 +109,9 @@ const PlaceOrder = () => {
             window.location.replace(session_url)
           }else{
             toast.error(responseStripe.data.message)
+            if (response.data.message === 'Not Authorized Login Again') {
+              navigate('/login');
+            }
           }
 
           break;
@@ -116,6 +122,9 @@ const PlaceOrder = () => {
           
           if (responseRazorpay.data.success) {
             initPay(responseRazorpay.data.order);
+            if (response.data.message === 'Not Authorized Login Again') {
+              navigate('/login');
+            }
           }
           
           break;
@@ -166,7 +175,7 @@ const PlaceOrder = () => {
           <div className='flex gap-3 flex-col lg:flex-row '>
             <div onClick={() => setMethod('stripe')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''}`}></p>
-              <img className='h-5 mx-4' src={assets.stripe_logo} alt="" />
+              <img className='h-5 mx-4' src={assets.Stripe_Logo} alt="" />
             </div>
             <div onClick={() => setMethod('razorpay')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'razorpay' ? 'bg-green-400' : ''}`}></p>
